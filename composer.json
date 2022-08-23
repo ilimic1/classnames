@@ -1,0 +1,26 @@
+{
+    "name": "ilimic/classnames",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ivo Limić",
+            "email": "ilimic1@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.8"
+    },
+    "scripts": {
+        "test:phpunit": "phpunit",
+        "test:phpstan": "phpstan"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ilimic\\Classnames\\": "src/"
+        }
+    }
+}

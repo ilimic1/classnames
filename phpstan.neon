@@ -1,0 +1,12 @@
+includes:
+parameters:
+	level: 9
+	treatPhpDocTypesAsCertain: false
+	bootstrapFiles:
+	paths:
+		- src/
+	scanFiles:
+	scanDirectories:
+	excludePaths:
+	ignoreErrors:
+	editorUrl: vscode://file/%%file%%:%%line%%
