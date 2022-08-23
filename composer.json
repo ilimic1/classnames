@@ -1,5 +1,6 @@
 {
     "name": "ilimic/classnames",
+    "description": "Classnames for PHP.",
     "type": "library",
     "authors": [
         {
