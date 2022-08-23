@@ -5,7 +5,8 @@ namespace Ilimic\Classnames;
 class Classnames {
 
 	/**
-	 * @var non-empty-string[] $classes
+	 * @var string[] $classes
+	 * @phpstan-var non-empty-string[] $classes
 	 */
 	private array $classes = [];
 
@@ -19,27 +20,20 @@ class Classnames {
 
 	public function addClass( string $class ) : void
 	{
+		if ( $class === '' ) {
+			return;
+		}
+
 		if ( ! $this->hasClass( $class ) ) {
 			$this->classes = \array_merge( $this->classes, self::normalizeClass( $class ) );
 		}
 	}
 
-	/**
-	 * @param string[] $classes
-	 */
-	public function addClasses( array $classes ) : void
-	{
-		foreach ( $classes as $class ) {
-			$this->addClass( $class );
-		}
-	}
-
 	public function removeClass( string $class ) : void
 	{
-		// $key = \array_search( $class, $this->classes, true );
-		// if ( $key !== false ) {
-		// 	unset( $this->classes[ $key ] );
-		// }
+		if ( $class === '' ) {
+			return;
+		}
 
 		// doing things the same way as jQuery, removeClass should
 		// remove all classes if there are duplicates
@@ -50,49 +44,13 @@ class Classnames {
 		}
 	}
 
-	/**
-	 * @param string[] $classes
-	 */
-	public function removeClasses( array $classes ) : void
-	{
-		foreach ( $classes as $class ) {
-			$this->removeClass( $class );
-		}
-	}
-
 	public function hasClass( string $class ) : bool
 	{
+		if ( $class === '' ) {
+			return false;
+		}
+
 		return \in_array( $class, $this->classes, true );
-	}
-
-	/**
-	 * @param string[] $classes
-	 */
-	public function hasAnyClass( array $classes ) : bool
-	{
-		foreach ( $classes as $class ) {
-			if ( $this->hasClass( $class ) ) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * @param non-empty-array<string> $classes
-	 */
-	public function hasAllClasses( array $classes ) : bool
-	{
-		if ( ! $classes ) {
-			throw new \ValueError( 'hasAllClasses(): Argument #1 ($classes) must not be empty' );
-		}
-
-		foreach ( $classes as $class ) {
-			if ( ! $this->hasClass( $class ) ) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	public function getClassnames() : string
@@ -104,13 +62,6 @@ class Classnames {
 	{
 		return $this->getClassnames();
 	}
-
-	// /**
-	//  * Polyfill for str_contains() on PHP 7.4
-	//  */
-	// private static function str_contains( string $haystack, string $needle ) : bool {
-	// 	return \strpos( $haystack, $needle ) !== false;
-	// }
 
 	/**
 	 * @return non-empty-string[]
@@ -130,7 +81,8 @@ class Classnames {
 
 	/**
 	 * @param mixed[] $args
-	 * @return non-empty-string[]
+	 * @return string[]
+	 * @phpstan-return non-empty-string[]
 	 */
 	private static function buildClasses( array $args ) : array
 	{

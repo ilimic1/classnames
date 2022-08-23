@@ -112,21 +112,6 @@ class MainTest extends TestCase {
 		$this->assertEquals( 'foo bar', $cn->getClassnames() );
 	}
 
-	public function testAddClasses() : void
-	{
-		$cn = new Classnames( 'foo' );
-		$cn->addClasses( [ 'bar' ] );
-		$this->assertEquals( 'foo bar', $cn->getClassnames() );
-		$cn->addClasses( [ 'bar' ] );
-		$this->assertEquals( 'foo bar', $cn->getClassnames() );
-		$cn->addClasses( [] );
-		$this->assertEquals( 'foo bar', $cn->getClassnames() );
-		$cn->addClasses( [ '', ' ' ] );
-		$this->assertEquals( 'foo bar', $cn->getClassnames() );
-		$cn->addClasses( [ 'bar', 'bar' ] );
-		$this->assertEquals( 'foo bar', $cn->getClassnames() );
-	}
-
 	public function testRemoveClass() : void
 	{
 		$cn = new Classnames( 'foo', 'bar', 'baz' );
@@ -138,15 +123,6 @@ class MainTest extends TestCase {
 		$this->assertEquals( '', $cn->getClassnames() );
 	}
 
-	public function testRemoveClasses() : void
-	{
-		$cn = new Classnames( 'foo', 'bar', 'baz' );
-		$cn->removeClasses( [ 'baz' ] );
-		$this->assertEquals( 'foo bar', $cn->getClassnames() );
-		$cn->removeClasses( [ 'foo', 'bar' ] );
-		$this->assertEquals( '', $cn->getClassnames() );
-	}
-
 	public function testHasClass() : void
 	{
 		$cn = new Classnames( 'foo bar' );
@@ -155,33 +131,6 @@ class MainTest extends TestCase {
 		$this->assertTrue( $cn->hasClass( 'bar' ) );
 		$this->assertFalse( $cn->hasClass( 'baz' ) );
 		$this->assertFalse( $cn->hasClass( 'foo ' ) );
-	}
-
-	public function testHasAnyClass() : void
-	{
-		$cn = new Classnames( 'foo bar baz' );
-		$this->assertFalse( $cn->hasAnyClass( [] ) );
-		$this->assertTrue( $cn->hasAnyClass( [ 'foo', 'lorem', 'ipsum' ] ) );
-		$this->assertFalse( $cn->hasAnyClass( [ 'lorem', 'ipsum', 'dolor' ] ) );
-
-		$cn2 = new Classnames( '' );
-		$this->assertFalse( $cn2->hasAnyClass( [] ) );
-	}
-
-	public function testHasAllClassesEmptyParameter() : void
-	{
-		$this->expectException( \ValueError::class );
-		$cn = new Classnames( 'foo bar baz' );
-		$cn->hasAllClasses( [] );
-	}
-
-	public function testHasAllClasses() : void
-	{
-		$cn = new Classnames( 'foo bar baz' );
-		$this->assertFalse( $cn->hasAllClasses( [ 'foo', 'lorem' ] ) );
-		$this->assertTrue( $cn->hasAllClasses( [ 'foo' ] ) );
-		$this->assertTrue( $cn->hasAllClasses( [ 'foo', 'bar' ] ) );
-		$this->assertTrue( $cn->hasAllClasses( [ 'foo', 'bar', 'baz' ] ) );
 	}
 
 	public function testGetClassnames() : void
@@ -207,5 +156,4 @@ class MainTest extends TestCase {
 		$cn3 = new Classnames( 'foo bar baz' );
 		$this->assertEquals( 'foo bar baz', (string) $cn3 );
 	}
-
 }
