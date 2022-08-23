@@ -1,6 +1,7 @@
 {
     "name": "ilimic/classnames",
     "description": "Classnames for PHP.",
+    "license": "MIT",
     "type": "library",
     "authors": [
         {
