@@ -17,6 +17,10 @@
         "phpstan/phpstan": "^1.8"
     },
     "scripts": {
+        "test": [
+            "@test:phpunit",
+            "@test:phpstan"
+        ],
         "test:phpunit": "phpunit",
         "test:phpstan": "phpstan"
     },
