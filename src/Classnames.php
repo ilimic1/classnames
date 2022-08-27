@@ -5,7 +5,7 @@ namespace Ilimic\Classnames;
 class Classnames {
 
 	/**
-	 * @var string[] $classes
+	 * @var         string[]           $classes
 	 * @phpstan-var non-empty-string[] $classes
 	 */
 	private array $classes = [];
@@ -64,7 +64,8 @@ class Classnames {
 	}
 
 	/**
-	 * @return non-empty-string[]
+	 * @return         string[]
+	 * @phpstan-return non-empty-string[]
 	 */
 	private static function normalizeClass( string $class ) : array
 	{
@@ -81,7 +82,8 @@ class Classnames {
 
 	/**
 	 * @param mixed[] $args
-	 * @return string[]
+	 * 
+	 * @return         string[]
 	 * @phpstan-return non-empty-string[]
 	 */
 	private static function buildClasses( array $args ) : array
