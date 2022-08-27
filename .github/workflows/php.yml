@@ -18,6 +18,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        coverage: none
+        tools: composer:${{ matrix.composer-version }}
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
