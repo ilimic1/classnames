@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        php-versions: ['7.4', '8.0', '8.1', '8.2']
+        php-version: ['7.4', '8.0', '8.1', '8.2']
         composer-version: ['v1', 'v2']
 
     steps:
@@ -26,8 +26,8 @@ jobs:
       uses: actions/cache@v3
       with:
         path: vendor
-        key: ${{ runner.os }}-php_${{ matrix.php-version }}-composer_${{ matrix.composer-version }}-composer-${{ hashFiles('**/composer.lock') }}
-        restore-keys: ${{ runner.os }}-php_${{ matrix.php-version }}-composer_${{ matrix.composer-version }}-composer-
+        key: ${{ matrix.operating-system }}-php_${{ matrix.php-version }}-composer_${{ matrix.composer-version }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ matrix.operating-system }}-php_${{ matrix.php-version }}-composer_${{ matrix.composer-version }}-composer-
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
