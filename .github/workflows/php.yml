@@ -39,8 +39,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Run PHPUnit
-      run: composer run-script test:phpunit
-
     - name: Run PHPStan
       run: composer run-script test:phpstan
+
+    - name: Run PHPUnit
+      run: composer run-script test:phpunit

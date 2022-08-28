@@ -21,8 +21,8 @@
             "@test:phpunit",
             "@test:phpstan"
         ],
-        "test:phpunit": "phpunit",
-        "test:phpstan": "phpstan"
+        "test:phpstan": "phpstan",
+        "test:phpunit": "phpunit"
     },
     "autoload": {
         "psr-4": {
