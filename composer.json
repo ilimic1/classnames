@@ -14,15 +14,18 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "phpstan/phpstan": "^1.8"
+        "phpstan/phpstan": "^1.8",
+        "roave/backward-compatibility-check": "^7.1"
     },
     "scripts": {
         "test": [
             "@test:phpunit",
-            "@test:phpstan"
+            "@test:phpstan",
+            "@test:roave-backward-compatibility-check"
         ],
         "test:phpstan": "phpstan",
-        "test:phpunit": "phpunit"
+        "test:phpunit": "phpunit",
+        "test:roave-backward-compatibility-check": "roave-backward-compatibility-check"
     },
     "autoload": {
         "psr-4": {
