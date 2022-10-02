@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Ilimic\Classnames\Tests;
+
 use Ilimic\Classnames\Classnames;
 use PHPUnit\Framework\TestCase;
 
@@ -9,9 +11,9 @@ class MainTest extends TestCase {
 
 	public function testArgsAreFilteredOutCorrectly() : void
 	{
-		$this->assertSame( '', Classnames::classnames( null, true, false, 1, 1.1, [], new stdClass ) );
-		$this->assertSame( 'foo', Classnames::classnames( null, true, false, 1, 1.1, 'foo', [], new stdClass ) );
-		$this->assertSame( 'foo bar', Classnames::classnames( null, true, false, 1, 1.1, 'foo', [], new stdClass, 'bar' ) );
+		$this->assertSame( '', Classnames::classnames( null, true, false, 1, 1.1, [], new \stdClass ) );
+		$this->assertSame( 'foo', Classnames::classnames( null, true, false, 1, 1.1, 'foo', [], new \stdClass ) );
+		$this->assertSame( 'foo bar', Classnames::classnames( null, true, false, 1, 1.1, 'foo', [], new \stdClass, 'bar' ) );
 		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => true ] ) );
 		$this->assertSame( 'foo', Classnames::classnames( 'foo', [ 'bar' => false ] ) );
 	}
@@ -47,13 +49,13 @@ class MainTest extends TestCase {
 		$this->assertSame( 'bar', Classnames::classnames( [ 'bar' => ' ' ] ) );
 		$this->assertSame( 'bar', Classnames::classnames( [ 'bar' => '123' ] ) );
 		$this->assertSame( 'bar', Classnames::classnames( [ 'bar' => [ 1 ] ] ) );
-		$this->assertSame( 'bar', Classnames::classnames( [ 'bar' => new stdClass ] ) );
+		$this->assertSame( 'bar', Classnames::classnames( [ 'bar' => new \stdClass ] ) );
 		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => true ] ) );
 		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => 1 ] ) );
 		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => ' ' ] ) );
 		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => '123' ] ) );
 		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => [ 1 ] ] ) );
-		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => new stdClass ] ) );
+		$this->assertSame( 'foo bar', Classnames::classnames( 'foo', [ 'bar' => new \stdClass ] ) );
 	}
 
 	public function testWhitespaceDoesntAffectReturnedClasses() : void
