@@ -1,12 +1,20 @@
 <?php
 
 use function Ilimic\Classnames\classnames;
+use function Ilimic\Classnames\cn;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/helpers.php';
 
 var_dump( classnames( 'c-article', 'c-article--small' ) );
+
 var_dump( classnames( [
+    'c-article',
+    'c-article' => false,
+] ) );
+
+var_dump( cn( 'c-article', 'c-article--small' ) );
+
+var_dump( cn( [
     'c-article',
     'c-article' => false,
 ] ) );
@@ -25,7 +33,7 @@ var_dump( classnames( [
         <div class="<?php echo classnames( 'c-box', 'c-box--small' ); ?>">
             Small box.
         </div>
-        <div class="<?php echo classnames( 'c-content' ); ?>">
+        <div class="<?php echo cn( 'c-content' ); ?>">
             <p>Hello world! This is HTML5 Boilerplate.</p>
         </div>
     </body>
