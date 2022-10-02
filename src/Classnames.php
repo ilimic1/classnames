@@ -86,7 +86,7 @@ class Classnames {
 	 * @return         string[]
 	 * @phpstan-return non-empty-string[]
 	 */
-	private static function buildClasses( array $args ) : array
+	private static function buildClasses( array $args ) : null
 	{
 		$classes = [];
 
@@ -102,7 +102,7 @@ class Classnames {
 			}
 		}
 
-		return $classes;
+		return null;
 	}
 
 	/**
