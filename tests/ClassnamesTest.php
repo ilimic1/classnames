@@ -156,4 +156,10 @@ class MainTest extends TestCase {
 		$cn3 = new Classnames( 'foo bar baz' );
 		$this->assertEquals( 'foo bar baz', (string) $cn3 );
 	}
+
+	public function testHelperFunctionsExist() : void
+	{
+		$this->assertTrue( function_exists( 'Ilimic\Classnames\classnames' ) );
+		$this->assertTrue( function_exists( 'Ilimic\Classnames\cn' ) );
+	}
 }
