@@ -53,9 +53,9 @@ class Classnames {
 		return \in_array( $class, $this->classes, true );
 	}
 
-	public function getClassnames() : string
+	public function getClassnames() : null
 	{
-		return \implode( ' ', $this->classes );
+		return null;
 	}
 
 	public function __toString() : string
