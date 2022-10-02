@@ -23,7 +23,6 @@
             "@test:phpstan",
             "@test:roave-backward-compatibility-check"
         ],
-        "test:phpsyntax": "echo 'No syntax errors'",
         "test:phpstan": "phpstan",
         "test:phpunit": "phpunit",
         "test:roave-backward-compatibility-check": "roave-backward-compatibility-check"
