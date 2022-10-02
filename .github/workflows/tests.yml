@@ -44,3 +44,6 @@ jobs:
 
     - name: Run PHPUnit
       run: composer run-script test:phpunit
+
+    - name: Run Roave BC Check
+      uses: docker://nyholm/roave-bc-check-ga
