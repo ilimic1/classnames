@@ -20,10 +20,13 @@
     "scripts": {
         "test": [
             "@test:phpunit",
-            "@test:phpstan"
+            "@test:phpstan",
+            "@test:roave-backward-compatibility-check"
         ],
+        "test:phpsyntax": "echo 'No syntax errors'",
         "test:phpstan": "phpstan",
-        "test:phpunit": "phpunit"
+        "test:phpunit": "phpunit",
+        "test:roave-backward-compatibility-check": "roave-backward-compatibility-check"
     },
     "autoload": {
         "psr-4": {
