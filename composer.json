@@ -27,6 +27,11 @@
         "test:phpunit": "phpunit",
         "test:roave-backward-compatibility-check": "roave-backward-compatibility-check"
     },
+    "config": {
+        "allow-plugins": {
+            "ocramius/package-versions": true
+        }
+    },
     "autoload": {
         "psr-4": {
             "Ilimic\\Classnames\\": "src/"
@@ -35,9 +40,9 @@
             "src/functions.php"
         ]
     },
-    "config": {
-        "allow-plugins": {
-            "ocramius/package-versions": true
+    "autoload-dev": {
+        "psr-4": {
+            "Ilimic\\Classnames\\Tests\\": "tests/"
         }
     }
 }
