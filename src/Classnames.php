@@ -29,19 +29,24 @@ class Classnames {
 		}
 	}
 
-	public function removeClass( string $class ) : void
+	public function removeClass( string $class ) : bool
 	{
 		if ( $class === '' ) {
-			return;
+			return false;
 		}
+
+		$has_removed_classes = false;
 
 		// doing things the same way as jQuery, removeClass should
 		// remove all classes if there are duplicates
 		foreach ( $this->classes as $i => $_class ) {
 			if ( $_class === $class ) {
 				unset( $this->classes[$i] );
+				$has_removed_classes = true;
 			}
 		}
+
+		return $has_removed_classes;
 	}
 
 	public function hasClass( string $class ) : bool
@@ -53,7 +58,7 @@ class Classnames {
 		return \in_array( $class, $this->classes, true );
 	}
 
-	public function getClassnames() : null|string
+	public function getClassnames() : string
 	{
 		return \implode( ' ', $this->classes );
 	}
@@ -86,7 +91,7 @@ class Classnames {
 	 * @return         string[]
 	 * @phpstan-return non-empty-string[]
 	 */
-	private static function buildClasses( array $args ) : null
+	private static function buildClasses( array $args ) : array
 	{
 		$classes = [];
 
@@ -102,7 +107,7 @@ class Classnames {
 			}
 		}
 
-		return null;
+		return $classes;
 	}
 
 	/**
