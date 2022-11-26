@@ -29,7 +29,7 @@ class Classnames
         }
     }
 
-    public function removeClass(string $class): void
+    public function removeClass(?string $class): void
     {
         if ($class === '') {
             return;
