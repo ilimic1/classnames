@@ -5,19 +5,19 @@ use function Ilimic\Classnames\cn;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-var_dump( classnames( 'c-article', 'c-article--small' ) );
+var_dump(classnames('c-article', 'c-article--small'));
 
-var_dump( classnames( [
+var_dump(classnames([
     'c-article',
     'c-article' => false,
-] ) );
+]));
 
-var_dump( cn( 'c-article', 'c-article--small' ) );
+var_dump(cn('c-article', 'c-article--small'));
 
-var_dump( cn( [
+var_dump(cn([
     'c-article',
     'c-article' => false,
-] ) );
+]));
 
 ?>
 <!doctype html>
@@ -30,10 +30,10 @@ var_dump( cn( [
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="<?php echo classnames( 'c-box', 'c-box--small' ); ?>">
+        <div class="<?php echo classnames('c-box', 'c-box--small'); ?>">
             Small box.
         </div>
-        <div class="<?php echo cn( 'c-content' ); ?>">
+        <div class="<?php echo cn('c-content'); ?>">
             <p>Hello world! This is HTML5 Boilerplate.</p>
         </div>
     </body>
