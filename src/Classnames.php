@@ -39,7 +39,7 @@ class Classnames
         // remove all classes if there are duplicates
         foreach ($this->classes as $i => $_class) {
             if ($_class === $class) {
-                // unset($this->classes[$i]);
+                unset($this->classes[$i]);
             }
         }
     }
