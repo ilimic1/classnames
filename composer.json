@@ -30,6 +30,7 @@
         }
     },
     "scripts": {
+        "php-cs-fixer": "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
         "test": [
             "@test:phpunit",
             "@test:phpstan"
