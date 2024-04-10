@@ -6,18 +6,13 @@ use function Ilimic\Classnames\cn;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 var_dump(classnames('c-article', 'c-article--small'));
-
-var_dump(classnames([
-    'c-article',
-    'c-article' => false,
-]));
+// output: "c-article c-article--small"
 
 var_dump(cn('c-article', 'c-article--small'));
+// output: "c-article c-article--small"
 
-var_dump(cn([
-    'c-article',
-    'c-article' => false,
-]));
+var_dump(cn(['c-article', 'c-article--small' => false]));
+// output: "c-article"
 
 ?>
 <!doctype html>
@@ -30,7 +25,7 @@ var_dump(cn([
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="<?php echo classnames('c-box', 'c-box--small'); ?>">
+        <div class="<?php echo cn('c-box', 'c-box--small'); ?>">
             Small box.
         </div>
         <div class="<?php echo cn('c-content'); ?>">
