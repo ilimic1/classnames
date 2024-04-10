@@ -22,7 +22,6 @@ var_dump(cn(['c-article', 'c-article--small' => false]));
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <div class="<?php echo cn('c-box', 'c-box--small'); ?>">
