@@ -3,6 +3,9 @@
     "description": "Classnames for PHP.",
     "license": "MIT",
     "type": "library",
+    "config": {
+        "sort-packages": true
+    },
     "authors": [
         {
             "name": "Ivo Limić",
