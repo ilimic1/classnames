@@ -1,6 +1,6 @@
 {
     "name": "ilimic/classnames",
-    "description": "Classnames for PHP.",
+    "description": "A simple utility for conditionally joining CSS classes together.",
     "license": "MIT",
     "type": "library",
     "config": {
